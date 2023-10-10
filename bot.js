@@ -161,7 +161,7 @@ bot.onText( /\/y (.+)/, async ( msg, match ) =>
 	let cmd = "yt-dlp -f b";
 	if ( process.YT_MAX_FILESIZE )
 	{
-		cmd += ` [filesize>${process.YT_MAX_FILESIZE}]`;
+		cmd += ` [filesize<${process.YT_MAX_FILESIZE}]`;
 	}
 	if ( process.YT_SPLIT_CHAPTERS == "true" )
 	{
