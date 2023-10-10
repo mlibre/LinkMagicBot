@@ -158,7 +158,15 @@ bot.onText( /\/y (.+)/, async ( msg, match ) =>
 	}
 
 	// Use yt-dlp to download the highest quality video
-	const cmd = "yt-dlp -f b";
+	let cmd = "yt-dlp -f b";
+	if ( process.YT_MAX_FILESIZE )
+	{
+		cmd += ` [filesize>${process.YT_MAX_FILESIZE}]`;
+	}
+	if ( process.YT_SPLIT_CHAPTERS == "true" )
+	{
+		cmd += " --split-chapters";
+	}
 	if ( exec( `cd ${userFolderPath}; ${cmd} "${link}"` ).code !== 0 )
 	{
 		await bot.sendMessage( chatId, "Error downloading YouTube video" );

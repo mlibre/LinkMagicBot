@@ -52,6 +52,8 @@ You can create a `.env` file in the project directory with the following example
 ```env
 TELEGRAM_BOT_TOKEN=YOUR_TELEGRAM_BOT_TOKEN_HERE
 ALLOWED_USERS=comma,separated,usernames,if,needed
+YT_MAX_FILESIZE=50M
+YT_SPLIT_CHAPTERS=true
 ```
 
 Replace `YOUR_TELEGRAM_BOT_TOKEN_HERE` with your actual Telegram bot token. You can specify allowed users as a comma-separated list if needed.
