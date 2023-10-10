@@ -136,7 +136,7 @@ bot.onText( /\/d (.+)/, async ( msg, match ) =>
 			await bot.sendMessage( chatId, "Error downloading instagram video" );
 		}
 	}
-	await bot.sendMessage( chatId, "Did my best" );
+	// await bot.sendMessage( chatId, "Did my best" );
 	await sendAndDeleteFiles( chatId, userFolderPath );
 
 });
