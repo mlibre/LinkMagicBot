@@ -125,7 +125,7 @@ mkdir build
 cd build
 cmake -DCMAKE_BUILD_TYPE=Release ..
 cmake --build . --target install
-./telegram-bot-api
+./telegram-bot-api --api-id ID --api-hash HASH --local
 ```
 
 ## Contributing 🤝
