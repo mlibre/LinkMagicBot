@@ -1,0 +1,37 @@
+{
+  "name": "linkmagicbot",
+  "description": "LinkMagicBot: Download YouTube, Instagram, or any links effortlessly! 😎🌟",
+  "version": "1.0.0",
+  "main": "bot.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "node-telegram-bot-api": "^0.63.0",
+    "shelljs": "^0.8.5"
+  },
+  "devDependencies": {
+    "eslint": "^8.51.0"
+  },
+  "scripts": {
+    "start": "node --env-file=.env bot.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mlibre/LinkMagicBot.git"
+  },
+  "keywords": [
+    "bot",
+    "telegram",
+    "download",
+    "youtube",
+    "instagram"
+  ],
+  "homepage": "https://github.com/mlibre/LinkMagicBot#readme",
+  "author": "mlibre",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/mlibre/LinkMagicBot/issues"
+  }
+}
