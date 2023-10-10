@@ -103,12 +103,29 @@ To download a YouTube video, use the `/y` command followed by the YouTube video 
 Local bot server is a simple way to run the bot without using the Telegram bot API.  
 You can then upload files up to 2000mg
 
+### Create a new application
+
+Open [my.telegram](https://my.telegram.org/auth?to=apps).  
+
+Create a new application using the following parameters:
+
+ App title: TestApp1
+ Short name: testapp1
+ URL: N/A (Fill nothings here)
+ Platform: Desktop
+ Description: N/A (Fill nothings here)
+
+### Install on your server
+
 ```bash
-apt install cmake libssl-dev gperf ffmpeg
+apt install cmake libssl-dev gperf ffmpeg g++ zlib1g-dev
 git clone --recursive https://github.com/tdlib/telegram-bot-api.git
 cd telegram-bot-api
 mkdir build
+cd build
 cmake -DCMAKE_BUILD_TYPE=Release ..
+cmake --build . --target install
+./telegram-bot-api
 ```
 
 ## Contributing 🤝
