@@ -159,15 +159,15 @@ bot.onText( /\/y (.+)/, async ( msg, match ) =>
 
 	// Use yt-dlp to download the highest quality video
 	let cmd = "yt-dlp";
-	if ( process.YT_MAX_FILESIZE )
+	if ( process.env.YT_MAX_FILESIZE )
 	{
-		cmd += ` -f "b[filesize<${process.YT_MAX_FILESIZE}]"`;
+		cmd += ` -f "b[filesize<${process.env.YT_MAX_FILESIZE}]"`;
 	}
 	else
 	{
 		cmd += " -f b";
 	}
-	if ( process.YT_SPLIT_CHAPTERS == "true" )
+	if ( process.env.YT_SPLIT_CHAPTERS == "true" )
 	{
 		cmd += " --split-chapters";
 	}
