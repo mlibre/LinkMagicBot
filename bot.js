@@ -108,6 +108,15 @@ bot.onText( /\/d (.+)/, async ( msg, match ) =>
 			await bot.sendMessage( chatId, "Error downloading YouTube video" );
 		}
 	}
+	else if ( link.includes( "twitter.com" ) || link.includes( "x.com" ) )
+	{
+		// If it's a YouTube link, use yt-dlp to download the highest quality video
+		const cmd = "yt-dlp";
+		if ( exec( `cd ${userFolderPath}; ${cmd} "${link}"` ).code !== 0 )
+		{
+			await bot.sendMessage( chatId, "Error downloading YouTube video" );
+		}
+	}
 	else if ( link.includes( "instagram.com" ) )
 	{
 		const regex = /\/reel(s)?\/([^/]+)/;
