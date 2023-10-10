@@ -109,11 +109,11 @@ Open [my.telegram](https://my.telegram.org/auth?to=apps). while adBlockers and f
 
 Create a new application using the following parameters:
 
- App title: TestApp1
- Short name: testapp1
- URL: N/A (Fill nothings here)
- Platform: Desktop
- Description: N/A (Fill nothings here)
+- App title: TestApp1
+- Short name: testapp1
+- URL: N/A (Fill nothings here)
+- Platform: Desktop
+- Description: N/A (Fill nothings here)
 
 ### Install on your server
 
