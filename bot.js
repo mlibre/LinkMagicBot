@@ -110,7 +110,7 @@ bot.onText( /\/d (.+)/, async ( msg, match ) =>
 	}
 	else if ( link.includes( "instagram.com" ) )
 	{
-		const regex = /\/reels\/([^/]+)/;
+		const regex = /\/reel(s)?\/([^/]+)/;
 		const [ , match ] = link.match( regex );
 
 		const cmd = `instaloader -- -${match}`;
