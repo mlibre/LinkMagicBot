@@ -28,9 +28,10 @@ To use the bot, make sure you're an allowed user. The bot owner can grant permis
 
 Make sure you have the following tools installed:
 
-- [yt-dlp](https://github.com/yt-dlp/yt-dlp) for downloading YouTube videos.
-- [instaloader](https://instaloader.github.io/) for downloading Instagram videos.
-- [aria2c](https://aria2.github.io/) for downloading other files.
+- [yt-dlp](https://github.com/yt-dlp/yt-dlp) for downloading YouTube videos
+- [instaloader](https://instaloader.github.io/) for downloading Instagram videos
+- [aria2c](https://aria2.github.io/) for downloading other files
+- [ffmpeg](https://ffmpeg.org/) for converting videos and audio files
 
 ## Installation 🚚
 
@@ -103,7 +104,7 @@ Local bot server is a simple way to run the bot without using the Telegram bot A
 You can then upload files up to 2000mg
 
 ```bash
-apt install cmake libssl-dev gperf
+apt install cmake libssl-dev gperf ffmpeg
 git clone --recursive https://github.com/tdlib/telegram-bot-api.git
 cd telegram-bot-api
 mkdir build
