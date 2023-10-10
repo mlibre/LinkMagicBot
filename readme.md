@@ -105,7 +105,7 @@ You can then upload files up to 2000mg
 
 ### Create a new application
 
-Open [my.telegram](https://my.telegram.org/auth?to=apps).  
+Open [my.telegram](https://my.telegram.org/auth?to=apps). while adBlockers and firefox protectors are disabled.
 
 Create a new application using the following parameters:
 
