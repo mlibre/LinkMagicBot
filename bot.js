@@ -31,7 +31,6 @@ if ( process.env.ALLOWED_USERS )
 const bot = new TelegramBot( token, { polling: true });
 async function sendAndDeleteFiles ( chatId, userFolderPath )
 {
-
 	const filesInFolder = fs.readdirSync( userFolderPath );
 
 	if ( filesInFolder.length > 0 )
@@ -41,7 +40,20 @@ async function sendAndDeleteFiles ( chatId, userFolderPath )
 			const filePath = path.join( userFolderPath, file );
 			try
 			{
-				await bot.sendDocument( chatId, filePath );
+				const fileExtension = path.extname( file ).toLowerCase();
+
+				if ( fileExtension === ".mp4" || fileExtension === ".avi" )
+				{
+					await bot.sendVideo( chatId, filePath );
+				}
+				else if ( fileExtension === ".mp3" || fileExtension === ".wav" )
+				{
+					await bot.sendAudio( chatId, filePath );
+				}
+				else
+				{
+					await bot.sendDocument( chatId, filePath );
+				}
 			}
 			catch ( error )
 			{
@@ -57,7 +69,6 @@ async function sendAndDeleteFiles ( chatId, userFolderPath )
 	{
 		await bot.sendMessage( chatId, "No files to send." );
 	}
-
 }
 
 // bot.on( "message", async ( msg ) =>
