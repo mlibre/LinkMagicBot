@@ -167,7 +167,7 @@ bot.onText( /\/y (.+)/, async ( msg, match ) =>
 	}
 
 	// Use yt-dlp to download the highest quality video
-	let cmd = "yt-dlp";
+	let cmd = "yt-dlp -R 20 --socket-timeout 50";
 	if ( process.env.YT_MAX_FILESIZE )
 	{
 		cmd += ` -f "b[filesize<${process.env.YT_MAX_FILESIZE}]"`;
