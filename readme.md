@@ -33,6 +33,12 @@ Make sure you have the following tools installed:
 - [aria2c](https://aria2.github.io/) for downloading other files
 - [ffmpeg](https://ffmpeg.org/) for converting videos and audio files
 
+```bash
+sudo apt install python3-pip aria2 ffmpeg
+pip3 install -U "yt-dlp[default]"
+pip3 install instaloader
+```
+
 ## Installation 🚚
 
 Clone this repository and install the required dependencies:
@@ -45,19 +51,22 @@ npm install
 
 ## Configuration ⚙️
 
-1. Set your Telegram bot token in the `process.env.TELEGRAM_BOT_TOKEN` environment variable.
-2. If needed, specify allowed users in the `process.env.ALLOWED_USERS` environment variable.
+You can set environment variables to configure the bot in `shell` or create a `.env` file in the project directory:
 
-You can create a `.env` file in the project directory with the following example content:
+To set environment variables in shell simply set `process.env.TELEGRAM_BOT_TOKEN` environment variable and if needed `process.env.ALLOWED_USERS` environment variable.
 
-```env
+To use `.env` file, simply rename the `.env.example` file to `.env` and fill in the values:
+
+```bash
+mv .env.example .env
+```
+
+```bash
 TELEGRAM_BOT_TOKEN=YOUR_TELEGRAM_BOT_TOKEN_HERE
 ALLOWED_USERS=comma,separated,usernames,if,needed
 YT_MAX_FILESIZE=49M
 YT_SPLIT_CHAPTERS=true
 ```
-
-Replace `YOUR_TELEGRAM_BOT_TOKEN_HERE` with your actual Telegram bot token. You can specify allowed users as a comma-separated list if needed.
 
 ## Running the Bot 🏃
 
