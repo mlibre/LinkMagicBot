@@ -29,47 +29,6 @@ if ( process.env.ALLOWED_USERS )
 }
 
 const bot = new TelegramBot( token, { polling: true });
-async function sendAndDeleteFiles ( chatId, userFolderPath )
-{
-	const filesInFolder = fs.readdirSync( userFolderPath );
-
-	if ( filesInFolder.length > 0 )
-	{
-		for ( const file of filesInFolder )
-		{
-			const filePath = path.join( userFolderPath, file );
-			try
-			{
-				const fileExtension = path.extname( file ).toLowerCase();
-
-				if ( fileExtension === ".mp4" || fileExtension === ".avi" )
-				{
-					await bot.sendVideo( chatId, filePath );
-				}
-				else if ( fileExtension === ".mp3" || fileExtension === ".wav" )
-				{
-					await bot.sendAudio( chatId, filePath );
-				}
-				else
-				{
-					await bot.sendDocument( chatId, filePath );
-				}
-			}
-			catch ( error )
-			{
-				console.log( error );
-			}
-			finally
-			{
-				fs.unlinkSync( filePath );
-			}
-		}
-	}
-	else
-	{
-		await bot.sendMessage( chatId, "No files to send." );
-	}
-}
 
 // bot.on( "message", async ( msg ) =>
 bot.onText( /\/d (.+)/, async ( msg, match ) =>
@@ -187,3 +146,46 @@ bot.onText( /\/y (.+)/, async ( msg, match ) =>
 	// await bot.sendMessage( chatId, "Did my best" );
 	await sendAndDeleteFiles( chatId, userFolderPath );
 });
+
+
+async function sendAndDeleteFiles ( chatId, userFolderPath )
+{
+	const filesInFolder = fs.readdirSync( userFolderPath );
+
+	if ( filesInFolder.length > 0 )
+	{
+		for ( const file of filesInFolder )
+		{
+			const filePath = path.join( userFolderPath, file );
+			try
+			{
+				const fileExtension = path.extname( file ).toLowerCase();
+
+				if ( fileExtension === ".mp4" || fileExtension === ".avi" )
+				{
+					await bot.sendVideo( chatId, filePath );
+				}
+				else if ( fileExtension === ".mp3" || fileExtension === ".wav" )
+				{
+					await bot.sendAudio( chatId, filePath );
+				}
+				else
+				{
+					await bot.sendDocument( chatId, filePath );
+				}
+			}
+			catch ( error )
+			{
+				console.log( error );
+			}
+			finally
+			{
+				fs.unlinkSync( filePath );
+			}
+		}
+	}
+	else
+	{
+		await bot.sendMessage( chatId, "No files to send." );
+	}
+}
