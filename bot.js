@@ -70,7 +70,7 @@ bot.onText( /\/d (.+)/, async ( msg, match ) =>
 	else if ( link.includes( "twitter.com" ) || link.includes( "x.com" ) )
 	{
 		// If it's a YouTube link, use yt-dlp to download the highest quality video
-		const cmd = "yt-dlp";
+		const cmd = "yt-dlp -R 20 --socket-timeout 50";
 		if ( exec( `cd ${userFolderPath}; ${cmd} "${link}"` ).code !== 0 )
 		{
 			await bot.sendMessage( chatId, "Error downloading YouTube video" );
