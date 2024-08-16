@@ -71,6 +71,7 @@ bot.onText( /\/d (.+)/, async ( msg, match ) =>
 	{
 		// If it's a YouTube link, use yt-dlp to download the highest quality video
 		const cmd = "yt-dlp -R 20 --socket-timeout 50";
+		console.log(cmd);
 		if ( exec( `cd ${userFolderPath}; ${cmd} "${link}"` ).code !== 0 )
 		{
 			await bot.sendMessage( chatId, "Error downloading YouTube video" );
@@ -139,6 +140,7 @@ bot.onText( /\/y (.+)/, async ( msg, match ) =>
 	{
 		cmd += " --split-chapters";
 	}
+	console.log(cmd);
 	if ( exec( `cd ${userFolderPath}; ${cmd} "${link}"` ).code !== 0 )
 	{
 		await bot.sendMessage( chatId, "Error downloading YouTube video" );
